@@ -22,6 +22,7 @@ function App() {
   const selectedMicrotask = microtasks.find(
     (microtask) => microtask.id === selectedMicrotaskId
   );
+  const selectedTask = tasks.find((task) => task.id === selectedTaskId);
 
   function selectTask(id: string) {
     setSelectedTaskId(id);
@@ -71,7 +72,7 @@ function App() {
           <TaskList tasks={tasks} selectTask={selectTask} />
           <TaskForm createTask={createTask} />
         </div>
-        {selectedTaskId ? (
+        {selectedTask ? (
           <div className="microtask-container">
             <MicrotaskList
               microtasks={microtasks.filter(
@@ -80,7 +81,7 @@ function App() {
               selectMicrotask={selectMicroTask}
             />
             <MicrotaskForm
-              selectedTaskId={selectedTaskId}
+              selectedTask={selectedTask}
               createMicrotask={createMicroTask}
             />
           </div>

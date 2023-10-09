@@ -6,7 +6,7 @@ interface Props {
 
 export function TaskForm({ createTask }: Props) {
   const [name, setName] = useState("");
-  const [microTimeBudget, setMicroTimeBudget] = useState(0);
+  const [microTimeBudget, setMicroTimeBudget] = useState(5);
 
   function handleSubmission(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
