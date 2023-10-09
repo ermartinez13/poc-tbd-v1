@@ -33,13 +33,20 @@ export function Timer({
 
   useEffect(() => {
     if (isActive) {
-      const id = setInterval(() => {
-        setTimeElapsed((timeElapsed) => timeElapsed + 1);
-      }, 1000);
+      if (timeElapsed >= selectedMicroTask.timeBudget) {
+        handleStop();
+        handleDone();
+      } else {
+        const id = setInterval(() => {
+          setTimeElapsed((timeElapsed) => timeElapsed + 1);
+        }, 1000);
 
-      return () => clearInterval(id);
+        return () => {
+          clearInterval(id);
+        };
+      }
     }
-  }, [isActive]);
+  }, [isActive, timeElapsed]);
 
   return (
     <div className="timer">
