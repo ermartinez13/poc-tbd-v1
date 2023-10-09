@@ -17,7 +17,15 @@ export function TaskList({ tasks, selectTask }: Props) {
   }
 
   return (
-    <div onClick={handleItemClick}>
+    <div onClick={handleItemClick} className="task-list">
+      <p style={{ margin: 0 }}>Tasks</p>
+      <div className="row">
+        <span>name</span>
+        <span>id</span>
+        <span>timeSpent</span>
+        <span>timeBudget</span>
+        <span>status</span>
+      </div>
       {tasks.map((task) => (
         <Task key={task.id} task={task} />
       ))}

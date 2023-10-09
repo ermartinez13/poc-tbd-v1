@@ -54,13 +54,13 @@ function App() {
 
   return (
     <>
-      <div>
-        <div>
+      <div className="container">
+        <div className="task-container">
           <TaskList tasks={tasks} selectTask={selectTask} />
           <TaskForm createTask={createTask} />
         </div>
         {selectedTaskId ? (
-          <div>
+          <div className="microtask-container">
             <MicroTaskList
               microTasks={microTasks.filter(
                 (microTask) => microTask.taskId === selectedTaskId
@@ -74,8 +74,9 @@ function App() {
           </div>
         ) : null}
       </div>
-
+      <hr className="divider" />
       {selectedMicroTaskId ? <Timer /> : null}
+      <hr className="divider" />
     </>
   );
 }

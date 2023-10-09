@@ -16,7 +16,7 @@ export function TaskForm({ createTask }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmission}>
+    <form onSubmit={handleSubmission} className="row">
       <label>
         Task Name
         <input

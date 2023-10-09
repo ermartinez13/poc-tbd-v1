@@ -17,7 +17,7 @@ export function MicroTaskForm({ createMicroTask, selectedTaskId }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmission}>
+    <form onSubmit={handleSubmission} className="row">
       <label>
         Micro Name
         <input

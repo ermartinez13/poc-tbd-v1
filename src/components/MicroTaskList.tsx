@@ -16,7 +16,15 @@ export function MicroTaskList({ microTasks, selectMicroTask }: Props) {
     }
   }
   return (
-    <div onClick={handleItemClick}>
+    <div onClick={handleItemClick} className="microtask-list">
+      <p style={{ margin: 0 }}>Micro Tasks</p>
+      <div className="row">
+        <span>name</span>
+        <span>id</span>
+        <span>timeSpent</span>
+        <span>timeBudget</span>
+        <span>status</span>
+      </div>
       {microTasks.map((microTask) => (
         <MicroTask key={microTask.id} microTask={microTask} />
       ))}
