@@ -1,31 +1,35 @@
 import { useState } from "react";
 import "./App.css";
-import { MicroTaskForm } from "./components/MicroTaskForm";
-import { MicroTaskList } from "./components/MicroTaskList";
+import { MicrotaskForm } from "./components/MicroTaskForm";
+import { MicrotaskList } from "./components/MicroTaskList";
 import { TaskForm } from "./components/TaskForm";
 import { TaskList } from "./components/TaskList";
 import { Timer } from "./components/Timer";
 import {
-  microTasks as initialMicroTasks,
+  microtasks as initialMicrotasks,
   tasks as initialTasks,
 } from "./constants";
-import { Status } from "./models";
+import { MicrotaskUpdates, Status } from "./models";
 
 function App() {
-  const [microTasks, setMicroTasks] = useState(initialMicroTasks);
+  const [microtasks, setMicrotasks] = useState(initialMicrotasks);
   const [tasks, setTasks] = useState(initialTasks);
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
-  const [selectedMicroTaskId, setSelectedMicroTaskId] = useState<string | null>(
+  const [selectedMicrotaskId, setSelectedMicrotaskId] = useState<string | null>(
     null
+  );
+
+  const selectedMicrotask = microtasks.find(
+    (microtask) => microtask.id === selectedMicrotaskId
   );
 
   function selectTask(id: string) {
     setSelectedTaskId(id);
-    setSelectedMicroTaskId(null);
+    setSelectedMicrotaskId(null);
   }
 
   function selectMicroTask(id: string) {
-    setSelectedMicroTaskId(id);
+    setSelectedMicrotaskId(id);
   }
 
   function createTask(name: string, microBudget: number) {
@@ -49,7 +53,15 @@ function App() {
       timeBudget,
       status: Status.Active,
     };
-    setMicroTasks((prevMicroTasks) => [...prevMicroTasks, newMicroTask]);
+    setMicrotasks((prevMicroTasks) => [...prevMicroTasks, newMicroTask]);
+  }
+
+  function updateMicrotask(id: string, updates: MicrotaskUpdates) {
+    setMicrotasks((prevMicrotasks) =>
+      prevMicrotasks.map((microtask) =>
+        microtask.id === id ? { ...microtask, ...updates } : microtask
+      )
+    );
   }
 
   return (
@@ -61,21 +73,26 @@ function App() {
         </div>
         {selectedTaskId ? (
           <div className="microtask-container">
-            <MicroTaskList
-              microTasks={microTasks.filter(
-                (microTask) => microTask.taskId === selectedTaskId
+            <MicrotaskList
+              microtasks={microtasks.filter(
+                (microtask) => microtask.taskId === selectedTaskId
               )}
-              selectMicroTask={selectMicroTask}
+              selectMicrotask={selectMicroTask}
             />
-            <MicroTaskForm
+            <MicrotaskForm
               selectedTaskId={selectedTaskId}
-              createMicroTask={createMicroTask}
+              createMicrotask={createMicroTask}
             />
           </div>
         ) : null}
       </div>
       <hr className="divider" />
-      {selectedMicroTaskId ? <Timer /> : null}
+      {selectedMicrotask ? (
+        <Timer
+          selectedMicrotask={selectedMicrotask}
+          updateMicrotask={updateMicrotask}
+        />
+      ) : null}
       <hr className="divider" />
     </>
   );

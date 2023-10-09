@@ -1,12 +1,15 @@
-import { MicroTask as MicroTaskI } from "../models";
-import { MicroTask } from "./MicroTask";
+import { Microtask as MicroTaskI } from "../models";
+import { Microtask } from "./MicroTask";
 
 interface Props {
-  microTasks: MicroTaskI[];
-  selectMicroTask: (id: string) => void;
+  microtasks: MicroTaskI[];
+  selectMicrotask: (id: string) => void;
 }
 
-export function MicroTaskList({ microTasks, selectMicroTask }: Props) {
+export function MicrotaskList({
+  microtasks: microTasks,
+  selectMicrotask: selectMicroTask,
+}: Props) {
   function handleItemClick(e: React.MouseEvent<HTMLDivElement>) {
     if (e.target === e.currentTarget) return;
     if (e.target instanceof HTMLElement) {
@@ -26,7 +29,7 @@ export function MicroTaskList({ microTasks, selectMicroTask }: Props) {
         <span>status</span>
       </div>
       {microTasks.map((microTask) => (
-        <MicroTask key={microTask.id} microTask={microTask} />
+        <Microtask key={microTask.id} microTask={microTask} />
       ))}
     </div>
   );

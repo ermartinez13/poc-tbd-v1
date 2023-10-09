@@ -1,10 +1,10 @@
-import { MicroTask as MicroTaskI } from "../models";
+import { Microtask as MicroTaskI } from "../models";
 
 interface Props {
   microTask: MicroTaskI;
 }
 
-export function MicroTask({ microTask }: Props) {
+export function Microtask({ microTask }: Props) {
   return (
     <div data-id={microTask.id} className="row">
       <span>{microTask.name}</span>

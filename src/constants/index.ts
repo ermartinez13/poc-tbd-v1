@@ -1,4 +1,4 @@
-import { Task, Status, MicroTask } from "../models";
+import { Task, Status, Microtask } from "../models";
 
 export const tasks: Task[] = [
   {
@@ -35,7 +35,7 @@ export const tasks: Task[] = [
   },
 ];
 
-export const microTasks: MicroTask[] = [
+export const microtasks: Microtask[] = [
   {
     id: "1",
     name: "Micro Task 1",

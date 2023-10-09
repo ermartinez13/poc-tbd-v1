@@ -2,10 +2,13 @@ import { useState } from "react";
 
 interface Props {
   selectedTaskId: string;
-  createMicroTask: (name: string, timeBudget: number, parentId: string) => void;
+  createMicrotask: (name: string, timeBudget: number, parentId: string) => void;
 }
 
-export function MicroTaskForm({ createMicroTask, selectedTaskId }: Props) {
+export function MicrotaskForm({
+  createMicrotask: createMicroTask,
+  selectedTaskId,
+}: Props) {
   const [name, setName] = useState("");
   const [timeBudget, setTimeBudget] = useState(0);
 

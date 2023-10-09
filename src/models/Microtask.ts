@@ -1,6 +1,6 @@
 import { Status } from ".";
 
-export interface MicroTask {
+export interface Microtask {
   id: string;
   name: string;
   taskId: string;
@@ -8,3 +8,7 @@ export interface MicroTask {
   timeBudget: number;
   status: Status;
 }
+
+export type MicrotaskUpdates = Partial<
+  Pick<Microtask, "timeSpent" | "timeBudget" | "status">
+>;
