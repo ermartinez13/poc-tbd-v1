@@ -62,7 +62,9 @@ export function Timer({
         </button>
         <button onClick={() => setTimeElapsed(0)}>Reset</button>
         <button onClick={handleExtend}>Extend</button>
-        <button onClick={handleDone}>Done</button>
+        <button disabled={isActive === true} onClick={handleDone}>
+          Done
+        </button>
       </fieldset>
       <span className="time">
         {Math.floor(timeElapsed / 60)}:{timeElapsed % 60}

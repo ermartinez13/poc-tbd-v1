@@ -1,12 +1,13 @@
-import { Task as TaskI } from "../models";
+import { Microtask, Task as TaskI } from "../models";
 import { Task } from "./Task";
 
 interface Props {
   tasks: TaskI[];
+  microtasks: Microtask[];
   selectTask: (id: string) => void;
 }
 
-export function TaskList({ tasks, selectTask }: Props) {
+export function TaskList({ tasks, selectTask, microtasks }: Props) {
   function handleItemClick(e: React.MouseEvent<HTMLDivElement>) {
     if (e.target === e.currentTarget) return;
     // obtain task id
@@ -26,9 +27,14 @@ export function TaskList({ tasks, selectTask }: Props) {
         <span>timeBudget</span>
         <span>status</span>
       </div>
-      {tasks.map((task) => (
-        <Task key={task.id} task={task} />
-      ))}
+      {tasks.map((task) => {
+        const childMicrotasks = microtasks.filter(
+          (microtask) => microtask.taskId === task.id
+        );
+        return (
+          <Task key={task.id} task={task} childMicrotasks={childMicrotasks} />
+        );
+      })}
     </div>
   );
 }
