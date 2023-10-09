@@ -88,9 +88,11 @@ function App() {
         ) : null}
       </div>
       <hr className="divider" />
-      {selectedMicrotask ? (
+      {selectedTask && selectedMicrotask ? (
         <Timer
+          key={selectedMicrotask.id}
           selectedMicrotask={selectedMicrotask}
+          selectedTask={selectedTask}
           updateMicrotask={updateMicrotask}
         />
       ) : null}
