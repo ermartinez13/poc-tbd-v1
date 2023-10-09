@@ -6,7 +6,7 @@ interface Props {
 
 export function MicroTask({ microTask }: Props) {
   return (
-    <div>
+    <div data-id={microTask.id}>
       <span>{microTask.name}</span>
       <span>{microTask.id}</span>
       <span>{microTask.timeSpent}</span>

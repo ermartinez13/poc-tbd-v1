@@ -5,7 +5,7 @@ interface Props {
 }
 export function Task({ task }: Props) {
   return (
-    <div>
+    <div data-id={task.id}>
       <span>{task.name}</span>
       <span>{task.id}</span>
       <span>{task.timeSpent}</span>
