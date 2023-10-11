@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import { MicrotaskForm } from "./components/MicroTaskForm";
-import { MicrotaskList } from "./components/MicroTaskList";
+import { MicrotaskForm } from "./components/MicrotaskForm";
+import { MicrotaskList } from "./components/MicrotaskList";
 import { TaskForm } from "./components/TaskForm";
 import { TaskList } from "./components/TaskList";
 import { Timer } from "./components/Timer";
@@ -31,7 +31,7 @@ function App() {
     setSelectedMicrotaskId(null);
   }
 
-  function selectMicroTask(id: string) {
+  function selectMicrotask(id: string) {
     setSelectedMicrotaskId(id);
   }
 
@@ -47,8 +47,8 @@ function App() {
     setTasks((prevTasks) => [...prevTasks, newTask]);
   }
 
-  function createMicroTask(name: string, timeBudget: number, parentId: string) {
-    const newMicroTask = {
+  function createMicrotask(name: string, timeBudget: number, parentId: string) {
+    const newMicrotask = {
       id: Date.now().toString(),
       taskId: parentId,
       name,
@@ -56,7 +56,7 @@ function App() {
       timeBudget,
       status: Status.Active,
     };
-    setMicrotasks((prevMicroTasks) => [...prevMicroTasks, newMicroTask]);
+    setMicrotasks((prevMicrotasks) => [...prevMicrotasks, newMicrotask]);
   }
 
   function updateMicrotask(id: string, updates: MicrotaskUpdates) {
@@ -84,11 +84,11 @@ function App() {
               microtasks={microtasks.filter(
                 (microtask) => microtask.taskId === selectedTaskId
               )}
-              selectMicrotask={selectMicroTask}
+              selectMicrotask={selectMicrotask}
             />
             <MicrotaskForm
               selectedTask={selectedTask}
-              createMicrotask={createMicroTask}
+              createMicrotask={createMicrotask}
             />
           </div>
         ) : null}

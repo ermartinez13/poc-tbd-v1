@@ -1,21 +1,21 @@
-import { Microtask as MicroTaskI } from "../models";
-import { Microtask } from "./MicroTask";
+import { Microtask as MicrotaskI } from "../models";
+import { Microtask } from "./Microtask";
 
 interface Props {
-  microtasks: MicroTaskI[];
+  microtasks: MicrotaskI[];
   selectMicrotask: (id: string) => void;
 }
 
 export function MicrotaskList({
   microtasks: microTasks,
-  selectMicrotask: selectMicroTask,
+  selectMicrotask: selectMicrotask,
 }: Props) {
   function handleItemClick(e: React.MouseEvent<HTMLDivElement>) {
     if (e.target === e.currentTarget) return;
     if (e.target instanceof HTMLElement) {
       const microTaskId =
         e.target.closest<HTMLElement>("[data-id]")?.dataset.id;
-      if (microTaskId) selectMicroTask(microTaskId);
+      if (microTaskId) selectMicrotask(microTaskId);
     }
   }
   return (

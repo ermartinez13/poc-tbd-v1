@@ -1,7 +1,7 @@
-import { Microtask as MicroTaskI } from "../models";
+import { Microtask as MicrotaskI } from "../models";
 
 interface Props {
-  microTask: MicroTaskI;
+  microTask: MicrotaskI;
 }
 
 export function Microtask({ microTask }: Props) {

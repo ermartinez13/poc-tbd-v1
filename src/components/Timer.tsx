@@ -8,32 +8,32 @@ interface Props {
 }
 
 export function Timer({
-  selectedMicrotask: selectedMicroTask,
-  updateMicrotask: updateMicroTask,
+  selectedMicrotask: selectedMicrotask,
+  updateMicrotask: updateMicrotask,
   selectedTask,
 }: Props) {
-  const [timeElapsed, setTimeElapsed] = useState(selectedMicroTask.timeSpent);
+  const [timeElapsed, setTimeElapsed] = useState(selectedMicrotask.timeSpent);
   const [isActive, setIsActive] = useState(false);
 
   function handleStop() {
     setIsActive(false);
-    updateMicroTask(selectedMicroTask.id, { timeSpent: timeElapsed });
+    updateMicrotask(selectedMicrotask.id, { timeSpent: timeElapsed });
   }
 
   function handleExtend() {
-    updateMicroTask(selectedMicroTask.id, {
+    updateMicrotask(selectedMicrotask.id, {
       timeBudget:
-        selectedMicroTask.timeBudget + selectedTask.defaultMicroBudget,
+        selectedMicrotask.timeBudget + selectedTask.defaultMicroBudget,
     });
   }
 
   function handleDone() {
-    updateMicroTask(selectedMicroTask.id, { status: Status.Done });
+    updateMicrotask(selectedMicrotask.id, { status: Status.Done });
   }
 
   useEffect(() => {
     if (isActive) {
-      if (timeElapsed >= selectedMicroTask.timeBudget) {
+      if (timeElapsed >= selectedMicrotask.timeBudget) {
         handleStop();
         handleDone();
       } else {
@@ -51,7 +51,7 @@ export function Timer({
   return (
     <div className="timer">
       <fieldset
-        disabled={selectedMicroTask.status === Status.Done}
+        disabled={selectedMicrotask.status === Status.Done}
         className="btn-group"
       >
         <button disabled={isActive === true} onClick={() => setIsActive(true)}>
