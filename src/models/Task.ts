@@ -4,7 +4,5 @@ export interface Task {
   id: string;
   name: string;
   defaultMicroBudget: number;
-  timeSpent: number;
-  timeBudget: number;
   status: Status;
 }
