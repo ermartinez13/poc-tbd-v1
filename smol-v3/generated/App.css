@@ -1,0 +1,55 @@
+/* App.css: The CSS styles for the application */
+
+/* Styles for the root element */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Styles for the task and microtask lists */
+#task-list, #microtask-list {
+    list-style: none;
+    padding: 1em;
+    margin: 0;
+}
+
+/* Styles for the rows */
+#task-list li, #microtask-list li {
+    padding: 0.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles for the task and microtask containers */
+.task, .microtask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styles for the timer */
+#timer {
+    padding: 1em;
+    border: 1px solid #ddd;
+    margin-top: 1em;
+    text-align: center;
+}
+
+/* Styles for the button group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.button-group button {
+    margin: 0 1em;
+}
+
+/* Styles for the bar graph */
+#graph {
+    width: 100%;
+    height: 300px;
+    margin-top: 2em;
+}
