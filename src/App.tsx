@@ -11,6 +11,7 @@ import {
 } from "./constants";
 import { MicrotaskUpdates, Status } from "./models";
 import { Graph } from "./components/Graph";
+import { TimerShell } from "./components/TimerShell";
 
 function App() {
   const [microtasks, setMicrotasks] = useState(initialMicrotasks);
@@ -100,7 +101,9 @@ function App() {
           selectedTask={selectedTask}
           updateMicrotask={updateMicrotask}
         />
-      ) : null}
+      ) : (
+        <TimerShell />
+      )}
       <hr className="divider" />
       <Graph tasks={tasks} microtasks={microtasks} />
     </>
