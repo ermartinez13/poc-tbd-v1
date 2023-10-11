@@ -10,6 +10,7 @@ import {
   tasks as initialTasks,
 } from "./constants";
 import { MicrotaskUpdates, Status } from "./models";
+import { Graph } from "./components/Graph";
 
 function App() {
   const [microtasks, setMicrotasks] = useState(initialMicrotasks);
@@ -101,6 +102,7 @@ function App() {
         />
       ) : null}
       <hr className="divider" />
+      <Graph tasks={tasks} microtasks={microtasks} />
     </>
   );
 }
