@@ -6,7 +6,7 @@ This repo contains two key elements: a) the source code for the first hand-typed
 
 A note to the reader: this source code was not built to demonstrate good architecture, code quality, performance, or UI. It was built to prioritize iteration speed and fulfill the purpose of providing a working and sharable (see codesandbox link below) example of the core feature sets of [idea](https://handsome-femur-998.notion.site/TBD-d2425bb47fc1408e90e4ab928590f0bb?pvs=4).
 
-Checkout the following Loom video for a quick overview of how to use the POC (did I mention that the UI is severly lacking intuitiveness? :D).
+Checkout the following [Loom video](https://www.loom.com/share/250d9db984a947e5b26d3107015a2704?sid=af95cce8-48df-4a09-ae14-1ed46459c644) for a quick overview of how to use the POC (did I mention that the UI is severly lacking intuitiveness? :D).
 
 To play around with POC, visit [this](https://codesandbox.io/p/github/ermartinez13/tbd-poc-v1/main?workspaceId=ce2ee9c5-9e3c-4906-8a66-51ac2d9f846b&file=/src/App.tsx:1,1) Codesandbox. Note: a series of Typescript errors will be highlighted in Codesandbox's editor but you shouldn't worry, the code does run as expected.
 
